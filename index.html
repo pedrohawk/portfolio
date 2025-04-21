@@ -8,9 +8,8 @@
 </head>
 <body>
   <header>
-    <h1>Hi, Welcome to my page</h1>
+    <h1>Hi, Welcome to my portfolio</h1>
     <p>Here you can see what i've been doing. Not only as a mobile developer, but as a product owner and analyst.</p>
-    <p>I'm also a curious and self-taught person, working everyday searching for new solutions and reach my client goals. </p>
   </header>
 
   <main>
@@ -36,5 +35,13 @@
   <footer>
     <p>© [Pedro Silva] - <a href="https://github.com/pedrohawk" target="_blank">GitHub</a></p>
   </footer>
+   
+  <script>
+  function showImage(thumb) {
+    const gallery = thumb.closest('.gallery');
+    const mainImage = gallery.querySelector('.main-image');
+    mainImage.src = thumb.src;
+  }
+</script>
 </body>
 </html>

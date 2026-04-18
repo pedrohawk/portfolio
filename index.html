@@ -1,89 +1,133 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    #lang-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      z-index: 100;
+    }
+  </style>
 </head>
 <body>
+  <button id="lang-toggle" onclick="toggleLang()">PT</button>
+
   <header>
-    <h1>Hi, Welcome to my portfolio</h1>
-    <p>Here you can see what i've been doing. Not only as a mobile developer, but as a product owner and analyst.</p>
+    <h1 data-en="Pedro Silva — Software Engineer" data-pt="Pedro Silva — Engenheiro de Software">Pedro Silva — Software Engineer</h1>
+    <p data-en="I am a software engineer with experience in mobile development, product ownership, and systems analysis. Below you will find a selection of projects that reflect my work across these areas." data-pt="Sou engenheiro de software com experiência em desenvolvimento mobile, gestão de produto e análise de sistemas. Abaixo encontras uma seleção de projetos que refletem o meu trabalho nestas áreas.">I am a software engineer with experience in mobile development, product ownership, and systems analysis. Below you will find a selection of projects that reflect my work across these areas.</p>
   </header>
 
   <main>
     <section class="projeto">
-      <h2>FX Project: Freelance Project for Industrial Management</h2>
+      <h2><span data-en="FX Project — Industrial Management ERP" data-pt="Projeto FX — ERP para Gestão Industrial">FX Project — Industrial Management ERP</span> <span class="project-tagline" data-en="Custom ERP system for factory planning, tracking and logistics" data-pt="Sistema ERP personalizado para planeamento, rastreamento e logística fabril">Custom ERP system for factory planning, tracking and logistics</span></h2>
       <div class="gallery">
         <img class="main-image" src="images/fx-1.png" alt="Main Project Image">
         <div class="thumbnails">
           <img src="images/fx-1.png" alt="" onclick="showImage(this)">
           <img src="images/fx-2.png" alt="" onclick="showImage(this)">
-          <img src="images/fx-3.png" alt="" onclick="showImage(this)">
         </div>
       </div>
-      <p>This is one of my most recent freelance projects, focused on improving planning efficiency, time tracking, and overall business logistics through a custom ERP solution.</p>
-      <p>The client needed a tailored system to meet various operational demands within the factory. The solution includes:</p>
+      <p data-en="A freelance ERP solution built to improve planning efficiency, time tracking, and business logistics for an industrial client. The system was designed to address a range of operational demands across the factory floor." data-pt="Uma solução ERP freelance desenvolvida para melhorar a eficiência de planeamento, controlo de tempo e logística para um cliente industrial. O sistema foi desenhado para responder a diversas necessidades operacionais na fábrica.">A freelance ERP solution built to improve planning efficiency, time tracking, and business logistics for an industrial client. The system was designed to address a range of operational demands across the factory floor.</p>
+      <p data-en="The solution comprises three core components:" data-pt="A solução é composta por três componentes principais:">The solution comprises three core components:</p>
       <ul>
-        <li><strong>Backoffice Application:</strong> Allows managers to control and monitor all factory operations from a centralized interface.</li>
-        <li><strong>Factory Floor App:</strong> Enables operators to log real-time events related to each component they work on.</li>
-        <li><strong>API & Integration Layer:</strong> Facilitates seamless communication between both applications and the database, ensuring consistent and reliable data flow across the system.</li>
+        <li><strong data-en="Backoffice Application:" data-pt="Aplicação de Backoffice:">Backoffice Application:</strong> <span data-en="Allows managers to control and monitor all factory operations from a centralized interface." data-pt="Permite aos gestores controlar e monitorizar todas as operações da fábrica a partir de uma interface centralizada.">Allows managers to control and monitor all factory operations from a centralized interface.</span></li>
+        <li><strong data-en="Factory Floor App:" data-pt="App de Chão de Fábrica:">Factory Floor App:</strong> <span data-en="Enables operators to log real-time events related to each component they work on." data-pt="Permite aos operadores registar eventos em tempo real relativos a cada componente em que trabalham.">Enables operators to log real-time events related to each component they work on.</span></li>
+        <li><strong data-en="API &amp; Integration Layer:" data-pt="Camada de API e Integração:">API &amp; Integration Layer:</strong> <span data-en="Facilitates seamless communication between both applications and the database, ensuring consistent and reliable data flow across the system." data-pt="Facilita a comunicação entre as duas aplicações e a base de dados, garantindo um fluxo de dados consistente e fiável em todo o sistema.">Facilitates seamless communication between both applications and the database, ensuring consistent and reliable data flow across the system.</span></li>
       </ul>
       <p><strong>Stack:</strong> .NET 8, MAUI, Entity Framework Core, SQL Server</p>
     </section>
 
     <section class="projeto">
-    <h2>Public Transport App – Real-Time Bus Schedules and Stop Information</h2>
-    <img src="images/fx-3.png" alt="Carris App Screenshot">
-    <p>I am currently responsible for the development and maintenance of a mobile app and backend API used by several public transport operators, including Carris. The system provides real-time information about routes, lines, wait times, and nearby stops.</p>
-    <p>The app was initially designed to show static data about bus lines and stops, but has evolved to include dynamic features such as live arrival estimates and vehicle tracking.</p>
-    <p>The backend infrastructure synchronizes data from each transportation provider, processes it, and makes it publicly available in real time.</p>
-    <p><strong>Stack:</strong> Xamarin, .NET Core, Entity Framework Core, SQL Server</p>
-      <a href="https://play.google.com/store/apps/details?id=pt.psilva.blackjackwizard.demo" target="_blank">Watch on Play Store</a>
+      <h2><span data-en="Public Transport App – Real-Time Routes and Stop Information" data-pt="App de Transportes Públicos – Rotas e Paragens em Tempo Real">Public Transport App – Real-Time Routes and Stop Information</span> <span class="project-tagline" data-en="Mobile app and backend API for public transit operators across Portugal" data-pt="App mobile e API backend para operadores de transporte público em Portugal">Mobile app and backend API for public transit operators across Portugal</span></h2>
+      <div class="gallery gallery--app">
+        <img class="main-image" src="images/app_carris_1.webp" alt="Carris App Screenshot">
+        <div class="thumbnails">
+          <img src="images/app_carris_1.webp" alt="" onclick="showImage(this)">
+          <img src="images/app_carris_2.webp" alt="" onclick="showImage(this)">
+          <img src="images/app_carris_3.webp" alt="" onclick="showImage(this)">
+          <img src="images/app_carris_4.webp" alt="" onclick="showImage(this)">
+        </div>
+      </div>
+      <p data-en="I lead the development and maintenance of a mobile application and backend API serving multiple public transport operators, including Carris. The platform delivers real-time information on routes, lines, wait times, and nearby stops." data-pt="Lidero o desenvolvimento e manutenção de uma aplicação mobile e API backend ao serviço de vários operadores de transporte público, incluindo a Carris. A plataforma fornece informação em tempo real sobre rotas, linhas, tempos de espera e paragens próximas.">I lead the development and maintenance of a mobile application and backend API serving multiple public transport operators, including Carris. The platform delivers real-time information on routes, lines, wait times, and nearby stops.</p>
+      <p data-en="Originally built around static schedule data, the app has since evolved to support live arrival estimates and vehicle tracking, significantly enhancing the passenger experience." data-pt="Originalmente construída com base em dados de horários estáticos, a app evoluiu para suportar estimativas de chegada em tempo real e rastreamento de veículos, melhorando significativamente a experiência dos passageiros.">Originally built around static schedule data, the app has since evolved to support live arrival estimates and vehicle tracking, significantly enhancing the passenger experience.</p>
+      <p data-en="The backend infrastructure continuously synchronizes data from each transport operator, processes it, and exposes it in real time through a public API." data-pt="A infraestrutura de backend sincroniza continuamente os dados de cada operador de transporte, processa-os e disponibiliza-os em tempo real através de uma API pública.">The backend infrastructure continuously synchronizes data from each transport operator, processes it, and exposes it in real time through a public API.</p>
+      <p><strong>Stack:</strong> Xamarin, .NET Core, Entity Framework Core, SQL Server</p>
+      <a href="https://play.google.com/store/apps/details?id=pt.carris.tecmic&hl=pt_PT" target="_blank" data-en="View on Google Play" data-pt="Ver no Google Play">View on Google Play</a>
     </section>
 
     <section class="projeto">
-    <h2>GTFS - General Transit Feed Specification</h2>
-    <img src="images/fx-3.png" alt="Carris App Screenshot">
-    <p>Closely related to the Public Transport App, this project involves generating GTFS feeds based on public transit data from multiple clients responsible for urban mobility.</p>
-    <p>GTFS enables third-party services — such as Google — to consume standardized public transit data and provide users with information about vehicle status, trip history, and routes/bus stops data</p>
-    <p>This type of project requires constant adaptation to each client’s specific context, ensuring their data is accurately transformed and mapped to the GTFS format.</p>
-    <p><strong>Stack:</strong> .NET 8, Entity Framework Core, SQL Server</p>
+      <h2><span data-en="GTFS Feed Generation — General Transit Feed Specification" data-pt="Geração de Feeds GTFS — General Transit Feed Specification">GTFS Feed Generation — General Transit Feed Specification</span> <span class="project-tagline" data-en="Standardized transit data feeds consumed by Google Maps and other services" data-pt="Feeds de dados de transporte normalizados consumidos pelo Google Maps e outros serviços">Standardized transit data feeds consumed by Google Maps and other services</span></h2>
+      <img src="images/gtfs_1.webp" alt="GTFS Feed Screenshot">
+      <p data-en="An extension of the Public Transport platform, this project focuses on generating standardized GTFS feeds from transit data provided by multiple urban mobility operators." data-pt="Uma extensão da plataforma de Transportes Públicos, este projeto foca-se na geração de feeds GTFS normalizados a partir dos dados fornecidos por vários operadores de mobilidade urbana.">An extension of the Public Transport platform, this project focuses on generating standardized GTFS feeds from transit data provided by multiple urban mobility operators.</p>
+      <p data-en="GTFS allows third-party services — such as Google Maps — to consume structured transit data and present users with accurate information on vehicle status, trip history, and stop/route details." data-pt="O GTFS permite que serviços de terceiros — como o Google Maps — consumam dados de transporte estruturados e apresentem aos utilizadores informação precisa sobre o estado dos veículos, histórico de viagens e detalhes de paragens e rotas.">GTFS allows third-party services — such as Google Maps — to consume structured transit data and present users with accurate information on vehicle status, trip history, and stop/route details.</p>
+      <p data-en="Each implementation requires careful adaptation to the client's data model, ensuring accurate transformation and full compliance with the GTFS specification." data-pt="Cada implementação requer uma adaptação cuidadosa ao modelo de dados do cliente, garantindo uma transformação precisa e total conformidade com a especificação GTFS.">Each implementation requires careful adaptation to the client's data model, ensuring accurate transformation and full compliance with the GTFS specification.</p>
+      <p><strong>Stack:</strong> .NET 8, Entity Framework Core, SQL Server</p>
       <a href="https://www.transit.land/feeds/f-carris~pt" target="_blank">Carris GTFS Feed</a>
     </section>
 
-    
     <section class="projeto">
-      <h2>Blackjack Wizard</h2>
-      <img src="images/fx-3.png" alt="Imagem do Projeto 2">
-      <p>This project began as a personal hobby, where I explored the fundamentals of blackjack card counting.</p>
-      <p>The app is designed to help users track their blackjack sessions by recording played cards and assisting with card counting strategies in real time.</p>
+      <h2>Blackjack Wizard <span class="project-tagline" data-en="Card counting assistant for blackjack players" data-pt="Assistente de contagem de cartas para jogadores de blackjack">Card counting assistant for blackjack players</span></h2>
+      <div class="gallery gallery--app">
+        <img class="main-image" src="images/bj_image_1.webp" alt="Blackjack Wizard App Screenshot">
+        <div class="thumbnails">
+          <img src="images/bj_image_1.webp" alt="" onclick="showImage(this)">
+          <img src="images/bj_image_2.webp" alt="" onclick="showImage(this)">
+          <img src="images/bj_image_3.webp" alt="" onclick="showImage(this)">
+        </div>
+      </div>
+      <p data-en="A personal project born from an interest in blackjack card counting theory. What started as a learning exercise evolved into a fully functional mobile application." data-pt="Um projeto pessoal nascido do interesse pela teoria de contagem de cartas no blackjack. O que começou como um exercício de aprendizagem evoluiu para uma aplicação mobile totalmente funcional.">A personal project born from an interest in blackjack card counting theory. What started as a learning exercise evolved into a fully functional mobile application.</p>
+      <p data-en="The app assists users in tracking their blackjack sessions by logging dealt cards and providing real-time card counting guidance based on established strategies." data-pt="A app ajuda os utilizadores a acompanhar as suas sessões de blackjack, registando as cartas distribuídas e fornecendo orientação de contagem de cartas em tempo real com base em estratégias estabelecidas.">The app assists users in tracking their blackjack sessions by logging dealt cards and providing real-time card counting guidance based on established strategies.</p>
       <p><strong>Stack:</strong> Java, Kotlin, Firebase</p>
-      <a href="https://play.google.com/store/apps/details?id=pt.psilva.blackjackwizard.demo" target="_blank">Watch on Play Store</a>
+      <a href="https://play.google.com/store/apps/details?id=pt.psilva.blackjackwizard.demo" target="_blank" data-en="View on Google Play" data-pt="Ver no Google Play">View on Google Play</a>
     </section>
-    
+
     <section class="projeto">
-      <h2>Roulette Wizard</h2>
-      <img src="images/fx-3.png" alt="Imagem do Projeto 2">
-      <p>Inspired by the same concept as the Blackjack Wizard app, this project focuses on tracking roulette sessions in real time.</p>
-      <p>It implements a strategy based on the Martingale model, offering bet suggestions for both outside and inside bets, and totally customable to adjust the risk.</p>
-      <p>This was my first attempt at publishing an app on the Play Store — and the free version has already surpassed 5,000 downloads.</p>
+      <h2>Roulette Wizard <span class="project-tagline" data-en="Real-time roulette session tracker with betting strategy" data-pt="Rastreador de sessões de roleta em tempo real com estratégia de apostas">Real-time roulette session tracker with betting strategy</span></h2>
+      <div class="gallery gallery--app">
+        <img class="main-image" src="images/rlt_image_1.webp" alt="Roulette Wizard App Screenshot">
+        <div class="thumbnails">
+          <img src="images/rlt_image_1.webp" alt="" onclick="showImage(this)">
+          <img src="images/rlt_image_2.webp" alt="" onclick="showImage(this)">
+          <img src="images/rlt_image_3.webp" alt="" onclick="showImage(this)">
+        </div>
+      </div>
+      <p data-en="Built on the same concept as Blackjack Wizard, this app enables users to track roulette sessions in real time and receive data-driven betting suggestions." data-pt="Desenvolvida com o mesmo conceito do Blackjack Wizard, esta app permite aos utilizadores acompanhar sessões de roleta em tempo real e receber sugestões de apostas baseadas em dados.">Built on the same concept as Blackjack Wizard, this app enables users to track roulette sessions in real time and receive data-driven betting suggestions.</p>
+      <p data-en="The app implements a Martingale-based strategy, offering configurable suggestions for both outside and inside bets, allowing users to tailor the risk level to their preference." data-pt="A app implementa uma estratégia baseada no modelo Martingale, oferecendo sugestões configuráveis para apostas externas e internas, permitindo aos utilizadores ajustar o nível de risco à sua preferência.">The app implements a Martingale-based strategy, offering configurable suggestions for both outside and inside bets, allowing users to tailor the risk level to their preference.</p>
+      <p data-en="My first published application on the Google Play Store — the free version has surpassed 5,000 downloads." data-pt="A minha primeira aplicação publicada no Google Play Store — a versão gratuita já ultrapassou as 5.000 transferências.">My first published application on the Google Play Store — the free version has surpassed 5,000 downloads.</p>
       <p><strong>Stack:</strong> Java, Firebase</p>
-      <a href="https://play.google.com/store/apps/details?id=com.roulettewizard" target="_blank">Watch on Play Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.roulettewizard" target="_blank" data-en="View on Google Play" data-pt="Ver no Google Play">View on Google Play</a>
     </section>
   </main>
 
   <footer>
-    <p>© [Pedro Silva] - <a href="https://github.com/pedrohawk" target="_blank">GitHub</a></p>
+    <p>© Pedro Silva - <a href="https://github.com/pedrohawk" target="_blank">GitHub</a></p>
   </footer>
-   
+
   <script>
-  function showImage(thumb) {
-    const gallery = thumb.closest('.gallery');
-    const mainImage = gallery.querySelector('.main-image');
-    mainImage.src = thumb.src;
-  }
-</script>
+    let currentLang = 'en';
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'pt' : 'en';
+      document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+      document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'PT' : 'EN';
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.dataset[currentLang];
+      });
+    }
+
+    function showImage(thumb) {
+      const gallery = thumb.closest('.gallery');
+      const mainImage = gallery.querySelector('.main-image');
+      mainImage.src = thumb.src;
+    }
+  </script>
 </body>
 </html>

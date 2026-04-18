@@ -39,6 +39,14 @@ main {
   margin-top: 0;
 }
 
+.project-tagline {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #888;
+  margin-top: 2px;
+}
+
 .projeto a {
   display: inline-block;
   margin-top: 10px;
@@ -77,5 +85,16 @@ main {
 
 .thumbnails img:hover {
   opacity: 1;
+}
+
+.gallery--app .main-image {
+  object-fit: contain;
+  background: #1a1a1a;
+  max-height: 480px;
+}
+
+.gallery--app .thumbnails img {
+  object-fit: contain;
+  background: #1a1a1a;
 }
 

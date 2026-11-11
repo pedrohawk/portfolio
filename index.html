@@ -10,10 +10,26 @@
       position: fixed;
       top: 1rem;
       right: 1rem;
+      display: flex;
+      border: 1px solid #2980b9;
+      border-radius: 6px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      z-index: 100;
+    }
+    #lang-toggle button {
       padding: 0.4rem 0.8rem;
+      border: 0;
+      background: white;
+      color: #555;
       cursor: pointer;
       font-size: 0.9rem;
-      z-index: 100;
+    }
+    #lang-toggle button.active {
+      background: #2980b9;
+      color: white;
+      font-weight: bold;
     }
     #zaask-widget {
       position: fixed;
@@ -43,7 +59,10 @@
   </style>
 </head>
 <body>
-  <button id="lang-toggle" onclick="toggleLang()">PT</button>
+  <div id="lang-toggle" role="group" aria-label="Language">
+    <button type="button" data-lang="en" class="active" onclick="setLang('en')">EN</button>
+    <button type="button" data-lang="pt" onclick="setLang('pt')">PT</button>
+  </div>
   <div id="instagram-widget">
     <a target="_blank" href="https://www.instagram.com/pedrotmsilva/" rel="noopener noreferrer">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -62,10 +81,11 @@
     <section class="projeto">
       <h2><span data-en="FX Project — Industrial Management ERP" data-pt="Projeto FX — ERP para Gestão Industrial">FX Project — Industrial Management ERP</span> <span class="project-tagline" data-en="Custom ERP system for factory planning, tracking and logistics" data-pt="Sistema ERP personalizado para planeamento, rastreamento e logística fabril">Custom ERP system for factory planning, tracking and logistics</span></h2>
       <div class="gallery">
-        <img class="main-image" src="images/fx-1.png" alt="Main Project Image">
+        <img class="main-image" src="images/fx-new-2.png" alt="FxGest Screenshot">
         <div class="thumbnails">
-          <img src="images/fx-1.png" alt="" onclick="showImage(this)">
-          <img src="images/fx-2.png" alt="" onclick="showImage(this)">
+          <img src="images/fx-new-1.png" alt="" onclick="showImage(this)">
+          <img src="images/fx-new-2.png" alt="" onclick="showImage(this)">
+          <img src="images/fx-new-3.png" alt="" onclick="showImage(this)">
         </div>
       </div>
       <p data-en="A freelance ERP solution built to improve planning efficiency, time tracking, and business logistics for an industrial client. The system was designed to address a range of operational demands across the factory floor." data-pt="Uma solução ERP freelance desenvolvida para melhorar a eficiência de planeamento, controlo de tempo e logística para um cliente industrial. O sistema foi desenhado para responder a diversas necessidades operacionais na fábrica.">A freelance ERP solution built to improve planning efficiency, time tracking, and business logistics for an industrial client. The system was designed to address a range of operational demands across the factory floor.</p>
@@ -75,6 +95,14 @@
         <li><strong data-en="Factory Floor App:" data-pt="App de Chão de Fábrica:">Factory Floor App:</strong> <span data-en="Enables operators to log real-time events related to each component they work on." data-pt="Permite aos operadores registar eventos em tempo real relativos a cada componente em que trabalham.">Enables operators to log real-time events related to each component they work on.</span></li>
         <li><strong data-en="API &amp; Integration Layer:" data-pt="Camada de API e Integração:">API &amp; Integration Layer:</strong> <span data-en="Facilitates seamless communication between both applications and the database, ensuring consistent and reliable data flow across the system." data-pt="Facilita a comunicação entre as duas aplicações e a base de dados, garantindo um fluxo de dados consistente e fiável em todo o sistema.">Facilitates seamless communication between both applications and the database, ensuring consistent and reliable data flow across the system.</span></li>
       </ul>
+      <p><strong data-en="Factory Floor App" data-pt="App de Chão de Fábrica">Factory Floor App</strong></p>
+      <div class="gallery gallery--device">
+        <img class="main-image" src="images/fx-fabrica-2.png" alt="FxFabrica Screenshot">
+        <div class="thumbnails">
+          <img src="images/fx-fabrica-1.png" alt="" onclick="showImage(this)">
+          <img src="images/fx-fabrica-2.png" alt="" onclick="showImage(this)">
+        </div>
+      </div>
       <p><strong>Stack:</strong> .NET 8, MAUI, Entity Framework Core, SQL Server</p>
     </section>
 
@@ -104,6 +132,39 @@
       <p data-en="Each implementation requires careful adaptation to the client's data model, ensuring accurate transformation and full compliance with the GTFS specification." data-pt="Cada implementação requer uma adaptação cuidadosa ao modelo de dados do cliente, garantindo uma transformação precisa e total conformidade com a especificação GTFS.">Each implementation requires careful adaptation to the client's data model, ensuring accurate transformation and full compliance with the GTFS specification.</p>
       <p><strong>Stack:</strong> .NET 8, Entity Framework Core, SQL Server</p>
       <a href="https://www.transit.land/feeds/f-carris~pt" target="_blank">Carris GTFS Feed</a>
+      <a href="https://mobilitydatabase.org/feeds/gtfs/mdb-2929" target="_blank" rel="noopener noreferrer" style="margin-left: 1rem;">Mobility Database Feed</a>
+    </section>
+
+    <section class="projeto">
+      <h2>Poker Wizard <span class="project-tagline" data-en="Live odds and Play/Fold calls for casino poker tables" data-pt="Probabilidades ao vivo e recomendações Jogar/Desistir para mesas de poker de casino">Live odds and Play/Fold calls for casino poker tables</span></h2>
+      <div class="gallery gallery--app">
+        <img class="main-image" src="images/pkr_image_5.webp" alt="Poker Wizard App Screenshot">
+        <div class="thumbnails">
+          <img src="images/pkr_image_5.webp" alt="" onclick="showImage(this)">
+          <img src="images/pkr_image_6.webp" alt="" onclick="showImage(this)">
+          <img src="images/pkr_image_7.webp" alt="" onclick="showImage(this)">
+          <img src="images/pkr_image_8.webp" alt="" onclick="showImage(this)">
+        </div>
+      </div>
+      <p data-en="Poker Wizard is a real-time odds assistant built for poker tables — enter the cards as they are dealt at a live table and get instant odds based on the Monte Carlo algorithm, expected value and a clear Play or Fold recommendation." data-pt="Poker Wizard é um assistente de probabilidades em tempo real criado para as mesas de poker — insira as cartas conforme elas são distribuídas em uma mesa ao vivo e obtenha probabilidades instantâneas, baseadas no algoritmo de Monte Carlo, valor esperado e uma recomendação clara de Jogar ou Desistir.">Poker Wizard is a real-time odds assistant built for poker tables — enter the cards as they are dealt at a live table and get instant odds based on the Monte Carlo algorithm, expected value and a clear Play or Fold recommendation.</p>
+      <p data-en="Five ways to play:" data-pt="Cinco maneiras de jogar:">Five ways to play:</p>
+      <ul>
+        <li><strong data-en="Casino Hold'em —" data-pt="Casino Hold'em —">Casino Hold'em —</strong> <span data-en="dealer qualification, paytable and a live Play/Fold recommendation as the cards are dealt." data-pt="qualificação do dealer, tabela de pagamentos e uma recomendação ao vivo de Jogar/Desistir conforme as cartas são distribuídas.">dealer qualification, paytable and a live Play/Fold recommendation as the cards are dealt.</span></li>
+        <li><strong data-en="Caribbean Stud —" data-pt="Caribbean Stud —">Caribbean Stud —</strong> <span data-en="raise or fold with 5 cards against the dealer's up card, with full ante/play payout logic built in." data-pt="aumente ou desista com 5 cartas contra a carta aberta do dealer, com lógica completa de pagamento de ante/jogada integrada.">raise or fold with 5 cards against the dealer's up card, with full ante/play payout logic built in.</span></li>
+        <li><strong data-en="Three Card Poker —" data-pt="Three Card Poker —">Three Card Poker —</strong> <span data-en="Play or Fold against the dealer's three-card hand, with the ante bonus included." data-pt="Jogue ou Desista contra a mão de três cartas do dealer, com bônus de ante incluído.">Play or Fold against the dealer's three-card hand, with the ante bonus included.</span></li>
+        <li><strong data-en="Ultimate Texas Hold'em —" data-pt="Ultimate Texas Hold'em —">Ultimate Texas Hold'em —</strong> <span data-en="bet 4x, 3x, 2x or 1x (or check) on each round, with exact EV calculations for every option." data-pt="aposte 4x, 3x, 2x ou 1x (ou passe) em cada rodada, com cálculos exatos de EV para cada opção.">bet 4x, 3x, 2x or 1x (or check) on each round, with exact EV calculations for every option.</span></li>
+        <li><strong data-en="Texas Hold'em Trainer —" data-pt="Treinador de Texas Hold'em —">Texas Hold'em Trainer —</strong> <span data-en="an equity lab for heads-up play: set your opponent to a specific hand or build a custom range on a full 13x13 grid, and see your win/tie/lose percentages and the exact pot odds you would need to call profitably." data-pt="um laboratório de equidade para heads-up: defina seu oponente para uma mão específica ou crie um range personalizado em uma tabela completa de 13x13, e observe suas porcentagens de vitórias/empates/derrotas e as odds exatas do pote que você precisaria pagar com lucro.">an equity lab for heads-up play: set your opponent to a specific hand or build a custom range on a full 13x13 grid, and see your win/tie/lose percentages and the exact pot odds you would need to call profitably.</span></li>
+      </ul>
+      <p data-en="Beyond the odds, the app also lets you record and store your live play:" data-pt="Além das probabilidades, o app também permite registrar e guardar o seu jogo ao vivo:">Beyond the odds, the app also lets you record and store your live play:</p>
+      <ul>
+        <li><strong data-en="Hand History —" data-pt="Histórico de Mãos —">Hand History —</strong> <span data-en="record live cash-game hands as they happen (seats, blinds, stacks, hole cards, each player's actions on every street, board and result) and replay them step by step." data-pt="registre mãos de cash game ao vivo enquanto acontecem (lugares, blinds, stacks, cartas, ações de cada jogador em todas as ruas, board e resultado) e reveja-as passo a passo.">record live cash-game hands as they happen (seats, blinds, stacks, hole cards, each player's actions on every street, board and result) and replay them step by step.</span></li>
+        <li><strong data-en="Session Tracker —" data-pt="Registro de Sessões —">Session Tracker —</strong> <span data-en="log your cash sessions and tournaments (date, duration, location, stakes, buy-ins and cash-out or prize) and see your results over time: profit, hourly rate, win rate and ROI." data-pt="registre as suas sessões de cash game e torneios (data, duração, local, stakes, buy-ins e cash-out ou prémio) e acompanhe os seus resultados ao longo do tempo: lucro, ganho por hora, taxa de vitórias e ROI.">log your cash sessions and tournaments (date, duration, location, stakes, buy-ins and cash-out or prize) and see your results over time: profit, hourly rate, win rate and ROI.</span></li>
+      </ul>
+      <p data-en="Every mode tracks your session — set a starting bankroll and optional stop-loss and profit goals, and get a clear alert when a limit is reached so you can decide whether to keep playing." data-pt="Cada modo monitora sua sessão — defina uma banca inicial e metas opcionais de stop-loss e lucro, e receba um alerta claro quando um limite for atingido para que você possa decidir se continua jogando.">Every mode tracks your session — set a starting bankroll and optional stop-loss and profit goals, and get a clear alert when a limit is reached so you can decide whether to keep playing.</p>
+      <p data-en="No account, no setup, no signal needed at the table. Just you, your cards and the math." data-pt="Sem conta, sem configuração, sem sinal para a mesa. Apenas você, suas cartas e a matemática.">No account, no setup, no signal needed at the table. Just you, your cards and the math.</p>
+      <p data-en="Poker Wizard is an independent training tool and is not affiliated with any casino or poker room. All recommendations are equity-based estimates, not gambling advice." data-pt="O Poker Wizard é uma ferramenta de treinamento independente e não tem vínculo com nenhum cassino ou sala de pôquer. Todas as recomendações são estimativas baseadas em equidade, não conselhos de jogo.">Poker Wizard is an independent training tool and is not affiliated with any casino or poker room. All recommendations are equity-based estimates, not gambling advice.</p>
+      <p><strong>Stack:</strong> Kotlin, Jetpack Compose</p>
+      <a href="https://play.google.com/store/apps/details?id=com.pedrohawk.livepokerwizard&hl=pt_PT" target="_blank" data-en="View on Google Play" data-pt="Ver no Google Play">View on Google Play</a>
     </section>
 
     <section class="projeto">
@@ -121,23 +182,6 @@
       <p><strong>Stack:</strong> Java, Kotlin, Firebase</p>
       <a href="https://play.google.com/store/apps/details?id=pt.psilva.blackjackwizard.demo" target="_blank" data-en="View on Google Play" data-pt="Ver no Google Play">View on Google Play</a>
     </section>
-
-    <section class="projeto">
-      <h2>Roulette Wizard <span class="project-tagline" data-en="Real-time roulette session tracker with betting strategy" data-pt="Rastreador de sessões de roleta em tempo real com estratégia de apostas">Real-time roulette session tracker with betting strategy</span></h2>
-      <div class="gallery gallery--app">
-        <img class="main-image" src="images/rlt_image_1.webp" alt="Roulette Wizard App Screenshot">
-        <div class="thumbnails">
-          <img src="images/rlt_image_1.webp" alt="" onclick="showImage(this)">
-          <img src="images/rlt_image_2.webp" alt="" onclick="showImage(this)">
-          <img src="images/rlt_image_3.webp" alt="" onclick="showImage(this)">
-        </div>
-      </div>
-      <p data-en="Built on the same concept as Blackjack Wizard, this app enables users to track roulette sessions in real time and receive data-driven betting suggestions." data-pt="Desenvolvida com o mesmo conceito do Blackjack Wizard, esta app permite aos utilizadores acompanhar sessões de roleta em tempo real e receber sugestões de apostas baseadas em dados.">Built on the same concept as Blackjack Wizard, this app enables users to track roulette sessions in real time and receive data-driven betting suggestions.</p>
-      <p data-en="The app implements a Martingale-based strategy, offering configurable suggestions for both outside and inside bets, allowing users to tailor the risk level to their preference." data-pt="A app implementa uma estratégia baseada no modelo Martingale, oferecendo sugestões configuráveis para apostas externas e internas, permitindo aos utilizadores ajustar o nível de risco à sua preferência.">The app implements a Martingale-based strategy, offering configurable suggestions for both outside and inside bets, allowing users to tailor the risk level to their preference.</p>
-      <p data-en="My first published application on the Google Play Store — the free version has surpassed 5,000 downloads." data-pt="A minha primeira aplicação publicada no Google Play Store — a versão gratuita já ultrapassou as 5.000 transferências.">My first published application on the Google Play Store — the free version has surpassed 5,000 downloads.</p>
-      <p><strong>Stack:</strong> Java, Firebase</p>
-      <a href="https://play.google.com/store/apps/details?id=com.roulettewizard" target="_blank" data-en="View on Google Play" data-pt="Ver no Google Play">View on Google Play</a>
-    </section>
   </main>
 
   <footer>
@@ -147,12 +191,14 @@
   <script>
     let currentLang = 'en';
 
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'pt' : 'en';
-      document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
-      document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'PT' : 'EN';
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      document.querySelectorAll('#lang-toggle button').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
       document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = el.dataset[currentLang];
+        el.textContent = el.dataset[lang];
       });
     }
 

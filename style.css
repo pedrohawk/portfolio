@@ -98,3 +98,15 @@ main {
   background: #1a1a1a;
 }
 
+
+.gallery--device .main-image {
+  object-fit: contain;
+  background: transparent;
+  max-height: 420px;
+}
+
+.gallery--device .thumbnails img {
+  object-fit: contain;
+  background: transparent;
+  width: 80px;
+}

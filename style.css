@@ -1,31 +1,139 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --ink: #0f172a;
+  --text: #334155;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --brand: #0f172a;
+  --brand-2: #1e293b;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --radius: 12px;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
-  color: #333;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+::selection { background: #bfdbfe; color: var(--ink); }
+
+a:focus-visible,
+button:focus-visible,
+.thumbnails img:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Header / footer ---------- */
 header, footer {
-  background: #2c3e50;
-  color: white;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+  color: #fff;
   text-align: center;
-  padding: 20px;
 }
 
+header {
+  padding: 64px 24px 56px;
+}
+
+header h1 {
+  margin: 0 0 14px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+header p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: #cbd5e1;
+}
+
+footer {
+  padding: 28px 24px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+footer p { margin: 0; }
+
+footer a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover { color: #fff; text-decoration: underline; }
+
+/* ---------- Layout ---------- */
 main {
-  max-width: 1000px;
-  margin: 20px auto;
+  max-width: 960px;
+  margin: 40px auto;
   padding: 0 20px;
 }
 
+/* ---------- Project cards ---------- */
 .projeto {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
 }
+
+.projeto h2 {
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.project-tagline {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.projeto p {
+  margin: 0 0 14px;
+}
+
+.projeto ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+.projeto li {
+  margin-bottom: 8px;
+}
+
+.projeto li::marker { color: var(--accent); }
+
+.projeto strong { color: var(--ink); font-weight: 600; }
 
 .projeto img {
   width: 100%;
@@ -35,78 +143,98 @@ main {
   margin: 10px 0;
 }
 
-.projeto h2 {
-  margin-top: 0;
-}
-
-.project-tagline {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: normal;
-  color: #888;
-  margin-top: 2px;
-}
-
+/* Links as buttons */
 .projeto a {
   display: inline-block;
-  margin-top: 10px;
-  color: #2980b9;
+  margin-top: 12px;
+  padding: 8px 16px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 0.925rem;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: background 0.2s, color 0.2s;
 }
 
+.projeto a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Galleries ---------- */
 .gallery {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .main-image {
   width: 100%;
   max-height: 300px;
   object-fit: cover;
-  border-radius: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   margin-bottom: 10px;
   transition: all 0.3s ease;
 }
 
 .thumbnails {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
 .thumbnails img {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   object-fit: cover;
-  border-radius: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 0;
   cursor: pointer;
   opacity: 0.7;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .thumbnails img:hover {
   opacity: 1;
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .gallery--app .main-image {
   object-fit: contain;
-  background: #1a1a1a;
+  background: var(--brand);
   max-height: 480px;
 }
 
 .gallery--app .thumbnails img {
   object-fit: contain;
-  background: #1a1a1a;
+  background: var(--brand);
 }
-
 
 .gallery--device .main-image {
   object-fit: contain;
   background: transparent;
+  border-color: transparent;
   max-height: 420px;
 }
 
 .gallery--device .thumbnails img {
   object-fit: contain;
   background: transparent;
+  border-color: transparent;
   width: 80px;
+}
+
+.gallery--device .thumbnails img:hover {
+  border-color: transparent;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+  header { padding: 72px 20px 40px; }
+  main { margin: 24px auto; padding: 0 14px; }
+  .projeto { padding: 22px 18px; }
+  .projeto h2 { font-size: 1.3rem; }
 }

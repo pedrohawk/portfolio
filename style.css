@@ -66,6 +66,17 @@ header p {
   color: #cbd5e1;
 }
 
+header p.contact {
+  margin-top: 14px;
+  color: #e2e8f0;
+}
+
+header p.contact a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 footer {
   padding: 28px 24px;
   font-size: 0.9rem;
